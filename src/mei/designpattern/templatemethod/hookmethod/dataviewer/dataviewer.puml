@@ -1,0 +1,19 @@
+@startuml
+
+abstract class DataViewer {
++{abstract}void getData()
++void convertData()
++{abstract}void displayData()
++{abstract}boolean isNotXMLData()
++void process()
+}
+class XMLDataViewer {
++void getData()
++void displayData()
++boolean isNotXMLData()
+}
+
+
+DataViewer <|-- XMLDataViewer
+
+@enduml

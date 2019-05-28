@@ -1,0 +1,26 @@
+@startuml
+
+abstract class Abstraction {
+#Implementor impl
++void setImpl(Implementor impl)
++{abstract} void operation()
+}
+
+class RefinedAbstraction {
++public void operation()
+}
+
+Interface Implementor {
++void operationImpl()
+}
+
+class ConcreteImplementor {
++void operationImpl()
+}
+
+
+Implementor <|.. ConcreteImplementor
+Abstraction <|-- RefinedAbstraction
+Abstraction o-right-> Implementor
+
+@enduml

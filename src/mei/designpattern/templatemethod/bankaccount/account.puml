@@ -1,0 +1,19 @@
+@startuml
+
+abstract class Account {
++boolean validate(String account, String password)
++{abstract}void calculateInterest()
++void display()
++void handle(String account, String password)
+}
+class CurrentAccount {
++void calculateInterest()
+}
+class SavingAccount {
++void calculateInterest()
+}
+
+Account <|-- CurrentAccount
+Account <|-- SavingAccount
+
+@enduml

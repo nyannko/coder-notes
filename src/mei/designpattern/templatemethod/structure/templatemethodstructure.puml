@@ -1,0 +1,17 @@
+@startuml
+
+abstract class AbstractClass {
++{abstract}void primitiveOperation1()
++void primitiveOperation2()
++void primitiveOperation3()
++void templateMethod()
+}
+class ConcreteClass {
++void primitiveOperation1()
++void primitiveOperation3()
+}
+
+
+AbstractClass <|-- ConcreteClass
+
+@enduml

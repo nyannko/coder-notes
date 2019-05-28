@@ -1,0 +1,53 @@
+@startuml
+
+abstract class Image{
+#ImageImpl impl
++setImageImpl (ImageImpl impl)
++{abstract}parseFile(String fileName)
+}
+
+class JPGImage {
++parseFile(String fileName)
+}
+class PNGImage {
++parseFile(String fileName)
+}
+class BMPImage {
++parseFile(String fileName)
+}
+class GIFImage {
++parseFile(String fileName)
+}
+
+class Matrix {
+}
+
+Interface ImageImpl {
++void doPaint(Matrix m)
+}
+
+class WindowsImpl {
++void doPaint(Matrix m)
+}
+
+class LinuxImpl {
++void doPaint(Matrix m)
+}
+
+class UnixImpl {
++void doPaint(Matrix m)
+}
+
+Image o-right-> ImageImpl
+Image <|-up- PNGImage
+Image <|-left- JPGImage
+Image <|-- BMPImage
+Image <|-- GIFImage
+
+Matrix <.. ImageImpl
+
+ImageImpl <|.. WindowsImpl
+ImageImpl <|.. LinuxImpl
+ImageImpl <|.. UnixImpl
+
+@enduml
