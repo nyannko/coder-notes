@@ -1,0 +1,38 @@
+@startuml
+
+abstract class Component{
++{abstract}void display()
+}
+
+class Window extends Component {
++void display()
+}
+
+class TextBox extends Component {
++void display()
+}
+
+class ListBox extends Component {
++void display()
+}
+
+class ComponentDecorator extends Component {
+-Component c
++ComponentDecorator(Component c)
++void display()
+}
+
+class ScrollBarDecorator extends ComponentDecorator {
++ScrollBarDecorator(Component c)
++display()
++setScrollBar()
+}
+
+class BlackBorderDecorator extends ComponentDecorator {
++BlackBoarderDecorator(Component c)
++display()
++setBlackBorder()
+}
+
+Component <--o ComponentDecorator
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+
+class Facade {
++void method()
+}
+note left of Facade
+method() {
+    methodA()
+    methodB()
+    methodC()
+}
+end note
+
+class SubsystemA{
++void methodA()
+}
+class SubsystemB{
++void methodB()
+}
+class SubsystemC{
++void methodC()
+}
+
+/' --> means has '/
+Facade --> SubsystemA
+Facade --> SubsystemB
+Facade --> SubsystemC
+
+@enduml

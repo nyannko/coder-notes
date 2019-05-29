@@ -1,0 +1,34 @@
+@startuml
+abstract class Component {
++{abstract}void operation()
+}
+
+class ConcreteComponent {
++void operation()
+}
+
+class Decorator extends Component {
++void operation()
+}
+note left of Decorator
+component.operation();
+end note
+
+class ConcreteDecoratorA extends Decorator {
+-boolean addedState
++void operation()
+}
+
+class ConcreteDecoratorB extends Decorator {
++void operation()
++void addedBehavior()
+}
+note bottom of ConcreteDecoratorB
+super.operation();
+addedBehavior();
+end note
+
+Component <--o Decorator : component
+Component <|-left- ConcreteComponent
+
+@enduml

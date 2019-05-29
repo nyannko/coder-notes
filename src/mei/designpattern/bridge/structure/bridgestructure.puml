@@ -18,6 +18,9 @@ class ConcreteImplementor {
 +void operationImpl()
 }
 
+note left of Abstraction
+impl.operationImpl();
+end note
 
 Implementor <|.. ConcreteImplementor
 Abstraction <|-- RefinedAbstraction

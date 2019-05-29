@@ -1,0 +1,24 @@
+@startuml
+title
+Safe composite pattern
+end title
+
+abstract class Component {
++operation()
+}
+
+class Composite {
++void add(Component c)
++void remove(Component c)
++Component getChild(int i)
++void operation()
+}
+
+class Leaf {
++void operation()
+}
+
+Component <|-left- Leaf
+Component <|-- Composite
+Component <--o Composite : children
+@enduml

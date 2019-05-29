@@ -1,0 +1,39 @@
+@startuml
+
+class EncryptFacade {
+-FileReader reader
+-CipherMachine cipher
+-FileWriter writer
++EncryptFacade()
++void fileEncrypt(String fileNameSrc, String fileNameDes)
+}
+
+note left of EncryptFacade
+reader = new FileReader();
+cipher = new CipherMachine();
+writer = new FileWriter();
+
+end note
+
+note right of EncryptFacade
+String plainText = reader.read(fileNameSrc);
+String cipherText = cipher.encrypt(plainText);
+writer.write(cipherText, fileNameDes);
+end note
+
+class FileReader {
++String read(String fileNameSrc)
+}
+
+class CipherMachine {
++String cipher(String plainText)
+}
+
+class FileWriter {
++void write(String cipherText, String fileNameDes)
+}
+
+EncryptFacade --> FileReader
+EncryptFacade --> CipherMachine
+EncryptFacade --> FileWriter
+@enduml

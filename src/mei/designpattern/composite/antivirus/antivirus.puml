@@ -1,0 +1,53 @@
+@startuml
+abstract class AbstractFile {
++{abstract} void add(AbstractFile file)
++{abstract} void remove(AbstractFile file)
++{abstract} AbstractFile getChild(int i)
++{abstract} killVirus()
+}
+
+class Folder {
+-String name
+-ArrayList<AbstractFile> fileList
++void add(AbstractFile file)
++void remove(AbstractFile file)
++AbstractFile getChildren(int i)
++killVirus()
+}
+
+class ImageFile {
+-String name
++void add(AbstractFile file)
++void remove(AbstractFile file)
++AbstractFile getChildren(int i)
++killVirus()
+}
+
+class TextFile {
+-String name
++void add(AbstractFile file)
++void remove(AbstractFile file)
++AbstractFile getChildren(int i)
++killVirus()
+}
+
+class VideoFile {
+-String name
++void add(AbstractFile file)
++void remove(AbstractFile file)
++AbstractFile getChildren(int i)
++killVirus()
+}
+
+note left of Folder
+for (AbstractFile file : fileList) {
+    file.killVirus();
+}
+end note
+
+AbstractFile <|-up- Folder
+AbstractFile <-up-o Folder : fileList
+AbstractFile <|-- ImageFile
+AbstractFile <|-- TextFile
+AbstractFile <|-- VideoFile
+@enduml
