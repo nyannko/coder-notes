@@ -1,0 +1,36 @@
+@startuml
+
+title Object adaptor example
+
+' Target
+abstract class CarController {
++void move()
++{abstract} void phonate()
++{abstract} void twinkle()
+}
+
+class PoliceCarAdapter extends CarController {
+-PoliceSound sound
+-PoliceLight light
++PoliceCarAdapter()
++void phonate()
++void twinkle()
+}
+
+class PoliceSound {
++void alarmSound()
+}
+
+class PoliceLight {
++void alarmLight()
+}
+
+class Client{
+}
+
+PoliceCarAdapter --> PoliceSound
+PoliceCarAdapter --> PoliceLight
+Client .right.> CarController
+
+
+@enduml

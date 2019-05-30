@@ -1,0 +1,21 @@
+@startuml
+
+abstract class Subject{
++{abstract} void request()
+}
+
+class RealSubject extends Subject {
++void request()
+}
+
+class Proxy {
+-RealSubject realSubject
++void preRequest()
++void request()
++void postRequest()
+}
+
+Subject <|-- Proxy
+RealSubject <-right- Proxy : realSubject
+
+@enduml

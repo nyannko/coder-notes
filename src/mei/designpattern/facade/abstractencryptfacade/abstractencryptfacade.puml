@@ -1,0 +1,46 @@
+@startuml
+
+abstract class AbstactEncryptFacade {
++{abstract}void fileEncrypt(String fileNameSrc, String fileNameDes)
+}
+
+class EncryptFacadeA extends AbstactEncryptFacade {
+-FileReader reader
+-CipherMachine cipher
+-FileWriter writer
++EncryptFacadeA()
++void fileEncrypt(String fileNameSrc, String fileNameDes)
+}
+
+class EncryptFacadeB extends AbstactEncryptFacade {
+-FileReader reader
+-CipherMachine cipher
+-FileWriter writer
++EncryptFacadeB()
++void fileEncrypt(String fileNameSrc, String fileNameDes)
+}
+
+class FileReader {
++String read(String fileNameSrc)
+}
+
+class CipherMachineA {
++String cipher(String plainText)
+}
+
+class CipherMachineB {
++String cipher(String plainText)
+}
+
+class FileWriter {
++void write(String cipherText, String fileNameDes)
+}
+
+EncryptFacadeA --> FileReader
+EncryptFacadeB --> FileReader
+EncryptFacadeA --> FileWriter
+EncryptFacadeB --> FileWriter
+EncryptFacadeA --> CipherMachineA
+EncryptFacadeB --> CipherMachineB
+
+@enduml

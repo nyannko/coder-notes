@@ -1,0 +1,24 @@
+@startuml
+
+class Client {
+}
+
+interface Target {
++void request()
+}
+
+class Adaptee {
++void specificRequest()
+}
+
+class Adapter extends Adaptee implements Target {
++void request()
+}
+
+note left of Adapter
+super.specificRequest()
+end note
+
+Client -right-> Target
+
+@enduml

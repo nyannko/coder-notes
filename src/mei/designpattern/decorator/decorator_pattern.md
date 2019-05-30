@@ -22,7 +22,7 @@ Attach additional responsibilities to an object dynamically. Decorators provide 
 #### 4.应用
 Java I/O 设计, swing图形界面
 
-![](![](https://raw.githubusercontent.com/nyannko/coder-notes/master/img/visualcomponent.png))
+![](https://raw.githubusercontent.com/nyannko/coder-notes/master/img/visualcomponent.png)
 
 #### 5.优点
 

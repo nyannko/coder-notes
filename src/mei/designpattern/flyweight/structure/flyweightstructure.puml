@@ -1,0 +1,26 @@
+@startuml
+
+abstract class Flyweight {
++{abstract}operation(extrinsicState)
+}
+
+class ConcreteFlyweight extends Flyweight {
+-intrinsicState
++operation(extrinsicState)
+}
+
+class UnsharedConcreteFlyweight extends Flyweight {
++operation(extrinsicState)
+}
+
+class FlyweightFactory {
+-HashMap pool
+-FlyweightFactory instance
++FlyweightFactory()
++getFlyWeight(String key)
+}
+
+FlyweightFactory <-- FlyweightFactory
+Flyweight  <-left- FlyweightFactory
+
+@enduml

@@ -1,0 +1,31 @@
+@startuml
+
+interface Searcher {
++String doSearch(String uid, String keyWord)
+}
+
+class RealSearcher implements Searcher {
++String doSearch(String uid, String keyWord)
+}
+
+class ProxySearcher implements Searcher {
+-AccessValidator av
+-Logger lg
+-RealSearcher rs
++String doSearch(String uid, String keyWord)
+}
+
+class AccessValidator {
++boolean validate(String uid)
+}
+
+class Logger {
++void log(String uid)
+}
+
+ProxySearcher --> AccessValidator
+ProxySearcher --> Logger
+ProxySearcher -right-> RealSearcher
+Client -right-> Searcher
+
+@enduml

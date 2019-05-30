@@ -1,0 +1,27 @@
+@startuml
+
+class Client {
+}
+
+class Target {
++void request()
+}
+
+class Adapter extends Target {
++void request()
+}
+
+class Adaptee {
++void specificRequest()
+}
+
+
+note left of Adapter
+adaptee.specificRequest()
+end note
+
+Adapter -up-> Adaptee : adaptee
+/' Adapter class has an object of Adaptee(association) '/
+Client .left.> Target
+
+@enduml

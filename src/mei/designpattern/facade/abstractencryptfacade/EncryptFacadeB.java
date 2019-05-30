@@ -1,19 +1,21 @@
-package mei.designpattern.facade.encryptfacade;
+package mei.designpattern.facade.abstractencryptfacade;
 
-public class EncryptFacade {
+public class EncryptFacadeB extends AbstractEncryptFacade {
     private FileReader reader;
-    private CipherMachine cipher;
+    private CipherMachineB cipher;
     private FileWriter writer;
 
-    public EncryptFacade() {
+    public EncryptFacadeB(){
         reader = new FileReader();
-        cipher = new CipherMachine();
+        cipher = new CipherMachineB();
         writer = new FileWriter();
     }
 
+    @Override
     public void fileEncrypt(String fileNameSrc, String fileNameDes) {
         String plainText = reader.read(fileNameSrc);
         String cipherText = cipher.encrypt(plainText);
-        writer.write(cipherText, fileNameDes);
+        String res = cipher.decrypt(cipherText);
+        writer.write(res, fileNameDes);
     }
 }

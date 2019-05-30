@@ -1,0 +1,26 @@
+@startuml
+
+title Class adaptor example
+
+interface  CarController {
++void move()
+}
+
+class PoliceCarAdapter extends PoliceLight implements CarController {
++void move()
+}
+note left of PoliceCarAdapter
+super.alarmLight()
+end note
+
+class PoliceLight {
++void alarmLight()
+}
+
+class Client{
+}
+
+Client .right.> CarController
+
+
+@enduml

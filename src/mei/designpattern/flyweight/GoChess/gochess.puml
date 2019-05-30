@@ -1,0 +1,36 @@
+@startuml
+
+abstract class GoChess {
++{abstract} String getColor()
++void display(Coordinates c)
+}
+
+class BlackChess extends GoChess {
++String getColor()
+}
+
+class WhiteChess extends GoChess {
++String getColor()
+}
+
+class GoChessFactory {
+-HashMap<String, GoChess> pool
+-GoChessFactory instance
++GoChessFactory getFactory()
++void putChess(String key)
++GoChess getChess(String key)
+}
+
+class Coordinates {
+-int x
+-int y
++Coordinates(x, y)
++getXY()
+}
+
+GoChessFactory <-- GoChessFactory
+
+GoChess <.left. GoChessFactory
+
+Coordinates <.. GoChess
+@enduml

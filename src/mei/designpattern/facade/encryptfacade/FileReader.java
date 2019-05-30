@@ -1,22 +1,19 @@
 package mei.designpattern.facade.encryptfacade;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 
 public class FileReader {
     public String read(String fileNameSrc) {
         System.out.println("Read String from file");
-        String s = "";
+        String s = null;
         try {
-            File file = new File("string.txt");
-            System.out.println(file.exists());
-            FileInputStream fs = new FileInputStream(file.getPath());
-            s = fs.readAllBytes().toString();
-            System.out.println(s);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            // get URL dynamically
+            URL url = getClass().getResource(fileNameSrc);
+            FileInputStream fs = new FileInputStream(url.getPath());
+            s = new String(fs.readAllBytes());
+            fs.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
