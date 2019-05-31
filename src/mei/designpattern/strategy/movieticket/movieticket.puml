@@ -1,0 +1,30 @@
+@startuml
+
+class MovieTicket{
+-double price
+-Discount discount
++void setDiscount() /'set strategy method..'/
++void setPrice()
++double getPrice()
++void calculate()
+}
+
+interface Discount {
++{abstract} double calculate(double price)
+}
+
+class StudentDiscount implements Discount {
++double calculate(double price)
+}
+
+class ChildrenDiscount implements Discount {
++double calculate(double price)
+}
+
+class VIPDiscount implements Discount {
++double calculate(double price)
+}
+
+MovieTicket o-right-> Discount : discount
+
+@enduml

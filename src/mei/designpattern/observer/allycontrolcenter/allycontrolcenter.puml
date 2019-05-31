@@ -1,0 +1,42 @@
+@startuml
+
+abstract class AllyControlCenter {
+-String centerName
+-ArrayList<Observer> observers
++void join(Observer o)
++void quit(Observer o)
++{abstract} void notifyObserver(String name)
+}
+
+class ConcreteAllyControlCenter extends AllyControlCenter {
++void notifyObserver(String name)
+}
+note bottom of ConcreteAllyControlCenter
+void notifyObserver(String name) {
+    for (Observer o : observers) {
+        if (!o.getName().equals(name)
+            o.help();
+    }
+}
+end note
+
+interface Observer {
++void help()
++String getPlayerName()
++void beAttacked(AllyControlCenter centerName)
+}
+
+class Player implements Observer {
+-String name
++String getPlayerName()
++beAttacked(AllyControlCenter centerName)
++void help()
+}
+note bottom of Player
+centerName.notifyObserver()
+end note
+
+AllyControlCenter -right-> Observer : observers
+Player -left-> ConcreteAllyControlCenter : AllyControlCenter
+
+@enduml

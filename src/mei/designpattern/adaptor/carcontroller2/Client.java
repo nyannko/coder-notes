@@ -3,7 +3,7 @@ package mei.designpattern.adaptor.carcontroller2;
 public class Client {
     public static void main(String[] args) {
         CarController controller = new PoliceCarAdapter();
-        controller.start();
+        controller.move();
     }
 }
 /* execution result

@@ -1,0 +1,41 @@
+@startuml
+
+abstract class Subject{
+-private ArrayList<Observer> observers
++void attach(Observer o)
++void detach(Observer o)
++{abstract}void notify()
+}
+
+class ConcreteSubject extends Subject {
+-subjectState
++getState()
++void setState()
+}
+
+note left of ConcreteSubject
+void notify() {
+    for (Observer o : observers) {
+        o.update();
+    }
+}
+end note
+
+interface Observer {
++void update()
+}
+
+class ConcreteObserver implements Observer {
+-Subject subject
+-observerState
++void update()
+}
+
+note right of ConcreteObserver
+observerState = subject.getState()
+end note
+
+Subject -right-> Observer : observers
+ConcreteObserver -left-> ConcreteSubject : subjectState
+
+@enduml
