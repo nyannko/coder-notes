@@ -1,0 +1,30 @@
+@startuml
+class Invoker {
+-Command command
++void setCommand(Command c)
++void call()
+}
+
+abstract class Command {
++{abstract} void execute()
+}
+
+class ConcreteCommand extends Command {
+-Receiver receiver
++void execute()
+}
+
+class Receiver {
++void action()
+}
+
+class Client{
+}
+
+ConcreteCommand -left-> Receiver : receiver
+Invoker o-right-> Command
+
+Client .left.> Invoker
+Client .right.> ConcreteCommand
+
+@enduml

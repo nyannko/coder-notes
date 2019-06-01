@@ -1,0 +1,31 @@
+@startuml
+
+class Aggregate {
++{abstract} Abstract createIterator()
+}
+
+class ConcreteAggregate extends Aggregate{
+-Iterator iterator
++AbstractIterator createIterator()
+}
+
+class Iterator {
++void first()
++void next()
++boolean hasNext()
++Object currItem()
+}
+
+class ConcreteIterator implements Iterator {
+-Aggregate aggregate
++void first()
++void next()
++boolean hasNext()
++Object currItem()
+}
+
+ConcreteIterator -left-> ConcreteAggregate : aggregate
+ConcreteAggregate ..> ConcreteIterator : iterator
+
+
+@enduml

@@ -1,0 +1,45 @@
+@startuml
+abstract class AbstractList {
+-ArrayList<Object> list
++void add(Object o)
++void remove(Object o)
++ArrayList<Object> getObjectList()
++{abstract} AbstractIterator getIterator()
+}
+
+class ProductList extends AbstractList {
+-ArrayList<Object> list
+-AbstractIterator iterator
++ProductList(ArrayList<Object> products) /' products is the ArrayList sent from client '/
++void add(Object o)
++void remove(Object o)
++ArrayList<Object> getObjectList()
++AbstractIterator getIterator()
+}
+
+interface AbstractIterator {
++void next()
++void previous()
++Object getNext()
++Object getPrevious()
++boolean isFirst()
++boolean isLast()
+}
+
+class ProductIterator implements AbstractIterator {
+-ArrayList<Object> list
+-int start
+-int end
++ProductList(ArrayList<Object> list)
++void next()
++void previous()
++Object getNext()
++Object getPrevious()
++boolean isFirst()
++boolean isLast()
+}
+
+ProductList .right.> ProductIterator : iterator
+ProductIterator --> ProductList : list
+
+@enduml
