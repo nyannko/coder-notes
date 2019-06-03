@@ -1,0 +1,42 @@
+@startuml
+
+class FunctionButton {
+-Command command
++void setCommand(Command command)
++void click()
+}
+
+abstract class Command {
++{abstract}void execute()
+}
+
+class ExitCommand extends Command {
+-SystemExitCommand seObj
++void execute()
+}
+note bottom of ExitCommand
+seObj.exit()
+end note
+
+class HelpCommand extends Command {
+-DisplayHelpClass hcObj
++void execute()
+}
+note bottom of HelpCommand
+hcObj.display()
+end note
+
+class SystemExitCommand {
++void exit()
+}
+
+class DisplayHelpClass {
++void display()
+}
+
+SystemExitCommand <-right-* ExitCommand
+DisplayHelpClass <-left-* HelpCommand
+
+FunctionButton o--> Command
+
+@enduml

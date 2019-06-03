@@ -1,0 +1,30 @@
+@startuml
+
+class CalculationForm {
+-AbstractCommand command
++void setCommand(AbstractCommand c)
++void compute(int value)
++void undo()
+}
+
+abstract class AbstractCommand {
++{abstract}int execute()
++{abstract}int undo()
+}
+
+class AddCommand extends AbstractCommand {
+-Adder adder
+-int value
++int execute(int value)
++int undo()
+}
+
+class Adder {
+-int sum
++int add(int value)
+}
+
+Adder <-left-* AddCommand
+CalculationForm o-right-> AbstractCommand
+
+@enduml
