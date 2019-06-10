@@ -1,0 +1,19 @@
+@startuml
+abstract class Prototype {
++{abstract} Prototype clone()
+}
+
+class ConcretePrototypeA extends Prototype {
++Prototype clone()
+}
+
+class ConcretePrototypeB extends Prototype {
++Prototype clone()
+}
+
+class Client {
+}
+
+Client -right-> Prototype : prototype
+
+@enduml

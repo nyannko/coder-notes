@@ -1,0 +1,26 @@
+@startuml
+abstract class Prototype {
++{abstract} Prototype clone()
+}
+
+class ConcretePrototypeA extends Prototype {
++Prototype clone()
+}
+
+class ConcretePrototypeB extends Prototype {
++Prototype clone()
+}
+
+class Client {
+}
+
+class PrototypeManager {
+-HashMap prototypeTable
++void add(String key, Prototype p)
++Prototype get(String key)
+}
+
+Client ..>  PrototypeManager : create
+Client .right.> Prototype
+
+@enduml

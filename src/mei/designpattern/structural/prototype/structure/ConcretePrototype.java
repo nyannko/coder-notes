@@ -1,4 +1,4 @@
-package mei.designpattern.structural.prototype;
+package mei.designpattern.structural.prototype.structure;
 
 public class ConcretePrototype extends Prototype {
     private String attr;

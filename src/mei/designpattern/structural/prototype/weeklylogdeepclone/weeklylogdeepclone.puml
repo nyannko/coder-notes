@@ -1,0 +1,30 @@
+@startuml
+
+interface Serializable {
+}
+
+class WeeklyLog implements Serializable {
+-Attachment attachment
+-String name
+-String date
+-String content
++void setAttachment(Attachment a)
++void setName(String name)
++void setDate(String date)
++void setContent(String content)
++Attachment getAttachment()
++String getName()
++String getDate()
++String getName()
++String getContent()
+}
+
+class Attachment implements Serializable {
+-String name
++void setName(String name)
++String getName()
++void download()
+}
+
+WeeklyLog o-right-> Attachment :attachment
+@enduml

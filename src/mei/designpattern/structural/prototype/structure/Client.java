@@ -1,4 +1,4 @@
-package mei.designpattern.structural.prototype;
+package mei.designpattern.structural.prototype.structure;
 
 public class Client {
     public static void main(String[] args) {
